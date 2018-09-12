@@ -7,3 +7,12 @@ exports.getcats = function(req, res) {
 	res.send(JSON.stringify({ cat1: result[0], cat2: result[1] }));
 	});
 };
+
+exports.vote = function(req, res) {
+	id = req.body.id;
+	let sql = "UPDATE cats SET rating=rating+1 WHERE id=?";
+	db.query(sql, id, function (err, result) {
+	if (err) throw err;
+	});
+	res.send(JSON.stringify({ rating: true }));
+};

@@ -2,9 +2,9 @@ module.exports = function(app) {
 
     var cats = require('../controllers/controllers.js');
 
-	app.get('/', function (req, res) {
-	  res.send('Hello World!')
-	})
-
+	// Get two random images of cats
 	app.get('/getimages', cats.getcats);
+
+	// Vote for a cat
+	app.post('/vote', cats.vote);
 }
